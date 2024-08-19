@@ -1,0 +1,19 @@
+@if (isShowAddTasks) {
+    <app-add-tasks [userId]="userId"  (isShowAddTasks)="onShowAddTasks()"/>
+}
+
+<section id="tasks">
+  <header>
+    <h2>{{ findUserName }}'s Tasks</h2>
+    <menu>
+      <button (click)="onShowAddTasks()">Add Task</button>
+    </menu>
+  </header>
+
+
+  <ul>
+    @for (item of dummyTasksFilter; track item.id) {
+    <li><app-task   [tasks]="item" /></li>
+    }
+  </ul>
+</section>
